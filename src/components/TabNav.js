@@ -1,14 +1,27 @@
 import React from 'react';
-class Tab extends React.Component {
+class TabNav extends React.Component {
   render() {
-    if(this.props.isSelected) {
-      return (
-        <div>
-          {this.props.children}
-        </div>
-      );
-    }
-    return null;
+    return (
+      <div>
+        <ul className="nav nav-tabs">
+          {this.props.tabs.map((tab) => {
+            const active = tab === this.props.selected ? 'active' : '';
+            return (
+              <li className="nav-item" key={tab}>
+                <a
+                  className={'nav-link' + active}
+                  onClick={() => this.props.setSelected(tab)}
+                >
+                  {tab}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        {this.props.children}
+      </div>
+    );
   }
 }
-export default Tab;
+
+export default TabNav;
