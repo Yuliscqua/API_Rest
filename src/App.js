@@ -13,12 +13,13 @@ function App() {
   fetch('https://www.cheapshark.com/api/1.0/stores', requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      const ;
+      const res = result;
     })
     .catch((error) => console.error(error));
   return (
     <header>
       <h1>Cheap Deals</h1>
+      <div>Hello</div>
     </header>
   );
 }
